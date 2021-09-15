@@ -2,7 +2,6 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class testeGithubFlow {
-    // Criando branch Feature/VerificarCpf-RemoverCpf
 
     public static void main(String[] args) {
         Scanner leitor = new Scanner(System.in);
@@ -44,15 +43,21 @@ public class testeGithubFlow {
                         for (int i = 1; i <= qtdeFuncionariosADD; i++) {
                             System.out.println("Por favor insira o CPF do funcionário");
                             cpf = leitor.next();
-                            System.out.println("Nome");
-                            leitor.nextLine();
-                            nome = leitor.nextLine();
-                            System.out.println("Telefone");
-                            telefone = leitor.nextLine();
-                            System.out.println("E-mail");
-                            email = leitor.next();
-                            cadastro.put(cpf, "Nome do funcionário: " + nome + "\n" + "Dados de contato - "
-                                    + "Telefone: " + telefone + " E-mail: " + email);
+                            // Condicional que verificará se o CPF é repetido
+                            if (cadastro.containsKey(cpf)) {
+                                System.out.print("Este CPF já foi cadastrado");
+                            }
+                            else {
+                                System.out.println("Nome");
+                                leitor.nextLine();
+                                nome = leitor.nextLine();
+                                System.out.println("Telefone");
+                                telefone = leitor.nextLine();
+                                System.out.println("E-mail");
+                                email = leitor.next();
+                                cadastro.put(cpf, "Nome do funcionário: " + nome + "\n" + "Dados de contato - "
+                                        + "Telefone: " + telefone + " E-mail: " + email);
+                            }
                             }
                         }
                         System.out.println();
