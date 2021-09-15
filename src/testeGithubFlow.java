@@ -29,7 +29,8 @@ public class testeGithubFlow {
         while (repeticaoMenu.equalsIgnoreCase("sim")) {
             System.out.println("Utilize os números indicados para navegar pelo menu");
             System.out.println("1 - Adicionar funcionários");
-            System.out.println("2 - Exibir a lista de funcionários");
+            System.out.println("2 - Remover funcionários");
+            System.out.println("3 - Exibir a lista de funcionários");
             escolhaMenu = leitor.nextInt();
 
             // Estrutura de decisão - Menu
@@ -64,7 +65,18 @@ public class testeGithubFlow {
                         System.out.println("Deseja inserir mais algum funcionário? Responda com Sim ou Não");
                         confirmarADD = leitor.next();
                     break;
-                case 2: // Exibir a lista de funcionários
+                case 2: // Sistema para remover funcionários
+                    System.out.println("Digite o CPF do funcionário que você deseja remover");
+                    cpf = leitor.next();
+                    // Condicional pra verificar se esse usuário está cadastrado
+                    if (cadastro.containsKey(cpf)) {
+                        System.out.println("Funcionário removido: \n" + cadastro.get(cpf));
+                        cadastro.remove(cpf);
+                    } else {
+                        System.out.println("Este funcionário não está cadastrado, confira se digitou corretamente");
+                    }
+                    break;
+                case 3: // Exibir a lista de funcionários
                     for (String referencia : cadastro.values()) {
                         System.out.println(referencia);
                     }
